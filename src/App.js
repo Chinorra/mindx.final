@@ -1,24 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import Navbar from './components/Navbar';
+import HomePage from './pages/HomePage';
+import ActivePage from './pages/ActivePage';
+import {Routes, Route} from 'react-router-dom';
+import CompletedPage from './pages/CompletedPage';
+import ContextProvider from './components/ContextProvider';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className='app'>
+      <Header />
+      <Navbar />
+        <ContextProvider>
+      <Routes>
+        <Route path='/' element={<HomePage/>}/>
+        <Route path='/active' element={<ActivePage/>}/>
+        <Route path='/completed' element={<CompletedPage/>}/>
+      </Routes>
+        </ContextProvider>
     </div>
+    </>
   );
 }
 
