@@ -22,10 +22,14 @@ async function getQuote() {
     return result
 }
 
+// Random a quote
 const handleRandomQuote = () => {
 setQuote([quoteList[Math.floor(Math.random() * quoteList.length)]])
 }
 
+
+// render list of quote with the same author
+// none of the quotes has them same author so it looks like doesn't work 
 const handleQuoteList = (authorName) => {
         setQuote(quoteList.filter((item) => item.author === authorName))
 }
